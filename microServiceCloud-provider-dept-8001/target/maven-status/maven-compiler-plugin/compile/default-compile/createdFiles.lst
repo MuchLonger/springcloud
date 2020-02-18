@@ -1,0 +1,6 @@
+com\cq\springcloud\Controller\DiscoveryController.class
+com\cq\springcloud\service\DeptService.class
+com\cq\springcloud\service\DeptServiceImpl.class
+com\cq\springcloud\DeptProvider8001_App.class
+com\cq\springcloud\dao\DeptDao.class
+com\cq\springcloud\Controller\DeptController.class

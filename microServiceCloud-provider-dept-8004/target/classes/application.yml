@@ -1,0 +1,40 @@
+server:
+  port: 8004
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: Entities    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml                       # mapper映射文件
+
+spring:
+  application:
+    name: microservicecloud-dept-cq
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource            # 当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver              # mysql驱动包
+    url: jdbc:mysql://localhost:3306/clouddb03?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC       # 数据库名称
+    username: root
+    password: 123456
+    dbcp2:
+      min-idle: 5                                           # 数据库连接池的最小维持连接数
+      initial-size: 5                                       # 初始化连接数
+      max-total: 5                                          # 最大连接数
+      max-wait-millis: 200                                  # 等待连接获取的最大超时时间
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: 8004端口的provider  #修改网站别名
+    prefer-ip-address: true       #查看访问路径时（即网页左下角那个地址，鼠标碰上去会到右边那个）可以显示ip
+
+info:
+  app.name: 我自己的springcloud练习，端口当然是8004啦
+  company.name: 老陈的公司
+  build.artifactId: microServiceCloud-provider-dept-8004  #写出当前provider的坐标（GAV）
+  build.version: 1.0-SNAPSHOT  #写出当前provider的版本
+
+
+

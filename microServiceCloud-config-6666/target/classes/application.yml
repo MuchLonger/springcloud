@@ -1,0 +1,14 @@
+server:
+  port: 6666
+
+spring:
+  application:
+    name:  microservicecloud-config-cq   #设置当前项目的名称（springboot的）
+  cloud:
+    config:
+      server:
+        git: #因为是和远程Github相关联的，所以需要远程仓库的地址，如下
+          uri: https://github.com/MuchLonger/microservicecloud-config.git
+management:
+  cloudfoundry:
+    skip-ssl-validation: true

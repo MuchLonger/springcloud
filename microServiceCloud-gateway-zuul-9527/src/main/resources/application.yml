@@ -1,0 +1,28 @@
+server:
+  port: 9527   #端口号
+spring:
+  application:
+    name: microservicecloud-zuul-gateway-cq  #eureka注册的名字
+
+eureka:
+  client:
+    service-url:   #加入集群
+      defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka,http://eureka7003.com:7003/eureka
+  instance:
+    instance-id: 老陈的9527路由   #eureka的别名
+    prefer-ip-address: true  #查看访问路径时（即网页左下角那个地址，鼠标碰上去会到右边那个）可以显示主机名
+
+info:
+  app.name: 老陈的路由
+  company.name: 老陈的路由公司
+  build.artifactId: ${project.artifactId}
+  build.version: ${project.version}
+
+zuul:   #真正的路由配置 ，注意 microservicecloud-dept-cq 是一个provider的id（名字，不是别名）
+  prefix: /cy     #统一公共前缀  加入之后就要在 provider的别名前添加 “cy” 才能访问
+  # 原本是可以通过 http://ip:port/microservicecloud-dept-cq/uri 这样的形式获取的，添加下面这句话之后就不能获取到了，仅能使用下面
+  # routes配置的获取到对应的provider接口的信息
+  ignored-services: microservicecloud-dept-cq       # 忽视 /microservicecloud-dept-cq/
+  routes:
+    mydept.serviceId: microservicecloud-dept-cq   #将带有microservicecloud-dept-cq的转化成下面的路径
+    mydept.path: /mydept/**    #配合上面的ignore 现在仅能通过 http://ip:port/mydept/uri 获取到接口信息（用于

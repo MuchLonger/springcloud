@@ -1,0 +1,6 @@
+com\cq\config\Configuration.class
+com\cq\controller\DeptController_Consumer.class
+myRule\MySelfRule.class
+com\cq\MicroServiceCloudConsumerDept_9001.class
+myRule\RandFiveTimeRule.class
+com\cq\controller\DiscoveryController_Consumer.class

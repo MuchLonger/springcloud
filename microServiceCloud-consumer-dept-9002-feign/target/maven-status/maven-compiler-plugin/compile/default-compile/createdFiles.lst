@@ -1,0 +1,4 @@
+com\cq\config\Configuration.class
+com\cq\MicroServiceCloudConsumerDept_9002_feign.class
+com\cq\controller\DeptController_Consumer.class
+com\cq\controller\DiscoveryController_Consumer.class

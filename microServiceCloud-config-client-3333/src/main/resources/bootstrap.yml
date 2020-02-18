@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    config:
+      name: application-client  #需要从github上读取的资源名称（即文件的名称），注意没有yml后缀名。（当前的文件名称为application-client.yml），
+      profile: dev   # 本次访问的配置项，启用dev环境
+      label: master    #master分支上的
+      #微服务启动后 先去找6666端口找到对应与Gihtub交互的服务器，通过它再获取到GitHub的文件的内容。就像是那张图片一样，Client通过Server与Github连通
+      uri: http://cloudserverconfig.com:6666  #配置中心Server端

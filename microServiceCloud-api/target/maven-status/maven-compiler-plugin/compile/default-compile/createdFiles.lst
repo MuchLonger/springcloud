@@ -1,0 +1,4 @@
+service\DeptClientServiceFallbackFactory.class
+service\DeptClientService.class
+Entities\Dept.class
+service\DeptClientServiceFallbackFactory$1.class
